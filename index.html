@@ -1,0 +1,191 @@
+<html>
+<h1>Hot Drinks Machine!!!</h1>
+
+<script>
+	//units
+	var tea = 3;
+	var heating = 7;
+	var lemon = 1;
+	var water = 4;
+	var chocolate = 4;
+	var cups = 5;
+	var milk = 4;
+	var sugar = 5;
+	var unitsHaveBeenSet = false
+	
+	function setTheUnits() {
+	
+		if (unitsHaveBeenSet == false) {
+			tea = 3;
+			heating = 7;
+			lemon = 1;
+			water = 4;
+			chocolate = 4;
+			cups = 5;
+			milk = 4;
+			sugar = 5;
+			console.log("units have been set");
+			unitsHaveBeenSet = true;
+		}
+	}
+	
+	setTheUnits();
+	
+	function makeDrink(drink) {
+		console.log("makeDrink");
+		if (drink == "tea")
+			makeLemonTea();
+		if (drink == "coffee")
+			makeCoffee();
+		if (drink == "chocolate")
+			makeHotChocolate();
+	}
+	
+	
+	function makeLemonTea() {
+		console.log("makeLemonTea");
+		if (water > 0) {
+			if (heating > 0) {
+				water = water - 1;
+				heating = heating - 1;
+				alert("Boiling some water! There is " + water + " units of water left");
+			} else {
+				alert("Error 2: Oh no! There's no hot left to boiling the water :-O");
+				return;
+			}
+		} else {
+			alert("Error 25: No water left");
+			return;
+		}
+		
+		if (tea > 0) {
+			tea = tea - 1;
+			alert("Steeping the water in the tea!");
+		} else {
+			alert("Error 15: No more tea :-(");
+			return;
+		}
+		
+		if (cups > 0) {
+			cups = cups - 1;
+			alert("Pouring tea in the cup!");
+		} else {
+			alert("Error 3: ran out of cups!");
+			return;
+		}
+		
+		if (lemon > 0) {
+			lemon = lemon - 1;
+			alert("Adding the lemon!");
+		} else {
+			alert("Error 4: Ran out of lemon");
+			alert("Voila! Your non-lemon tea is served");
+			return;
+		}
+		
+		alert("Voila! Your lemon tea is served :-)");
+	};
+	
+	function makeCoffee() {
+		console.log("makeCoffee");
+		if (water > 0) {
+			if (heating > 0) {
+				water = water - 1;
+				heating = heating - 1;
+				alert("Boiling some water! There is " + water + " units of water left");
+			} else {
+				alert("Error 2: Oh no! There's no hot left to boiling the water :-O");
+				return;
+			}
+		} else {
+			alert("Error 8: No water left to make coffee");
+			return;
+		}
+		
+		if (coffee > 0) {
+			coffee = coffee - 1;
+			alert("Brewing the coffee grounds!");
+			
+			if (cups > 0) {
+				cups = cups - 1;
+				alert("Pouring coffee in the cup!");
+			} else {
+				alert("Error 4: no cups left to make a coffee");
+				return;
+			}
+		}
+		
+		if (sugar > 0) {
+			if (milk > 0) {
+				sugar = sugar - 1;
+				milk = milk - 1;
+				alert("Adding the sugar and milk! There are " + milk + " units of milk left");	
+			} else {
+				sugar = sugar - 1;
+				alert("Error 17: no milk left");
+				alert("Voila! Your coffee without milk is served :-)");
+			}
+		}		
+		
+		alert("Voila! Your coffee is served :-)");
+	};
+	
+	function makeHotChocolate() {
+		
+		if (water > 0) {
+			if (heating > 0) {
+				water = water - 1;
+				heating = heating - 1;
+				alert("Boiling some water! There is " + water + " units of water left and " + heating + " heating left");
+			} else {
+				alert("Error 2: Oh no! There's no hot left to boiling the water :-O");
+				return;
+			}
+		} else {
+			alert("Error 7: No water left to make hot chocolate");
+			return;
+		}
+		
+		if (chocolate > 0) {
+			chocolate = chocolate - 1;
+			alert("Adding drinking chocolate powder to the water!! There are " + chocolate + " units of chocolate left in the machine");
+		} else {
+			alert("Error 11: no chocolate left");
+			return;
+		}
+		
+		if (cups > 0) {
+			cups = cups - 1;
+			alert("Pouring chocolate in the cup! There are " + cups + " left in the machine");
+		} else {
+			alert("Error 9: no cup to put the hot chocolate in");
+			return;
+		}
+		
+		alert("Voila! Your hot chocolate is served :-)");
+		
+	};
+</script>
+
+<div>
+Click on a link to make the drink!!!
+</div>
+
+<div>NOTE: this web application requires JavaScript to run</div>
+
+<div style="background-color:blue">
+<a id="tea" style="color:white" href="#" onclick="makeLemonTea();">Make Lemon Tea!</a>
+</div>
+
+<div style="background-color:red">
+<a id="coffee" style="color:yellow" href="#" onclick="makeCoffee();">Make Coffee!</a>
+</div>
+
+<div style="background-color:brown">
+<a id="chocolate" style="color:green" href="#" onclick="makeHotChocolate();">Hot Chocolate!</a>
+</div>
+
+<p>Hot Drinks Machine Copyright Alan 1998</p>
+<p>This site works best with Internet Explorer 4</p>
+
+</html>
