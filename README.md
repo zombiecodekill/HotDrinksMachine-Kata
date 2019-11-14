@@ -36,6 +36,7 @@ They would like:
 - To be able to make coffee without milk
 - To be able to refill the machine when it runs out of ingredients
 - If the machine runs out of cups, do not spill the drinks on the floor
+- The machine should be connected to a reliable power source so that the water heating element no longer runs out of power 
 
 There have also been a couple of suggestions made about the UI:
 
