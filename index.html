@@ -7,10 +7,12 @@
 	var heating = 7;
 	var lemon = 1;
 	var water = 4;
+	var coffee = 5;
 	var chocolate = 4;
 	var cups = 5;
 	var milk = 4;
 	var sugar = 5;
+	var coffeeWaste = 0;
 	var unitsHaveBeenSet = false
 	
 	function setTheUnits() {
@@ -21,9 +23,11 @@
 			lemon = 1;
 			water = 4;
 			chocolate = 4;
+			coffee = 5;
 			cups = 5;
 			milk = 4;
 			sugar = 5;
+			coffeeWaste = 0;
 			console.log("units have been set");
 			unitsHaveBeenSet = true;
 		}
@@ -103,16 +107,23 @@
 		}
 		
 		if (coffee > 0) {
-			coffee = coffee - 1;
-			alert("Brewing the coffee grounds!");
-			
-			if (cups > 0) {
-				cups = cups - 1;
-				alert("Pouring coffee in the cup!");
-			} else {
-				alert("Error 4: no cups left to make a coffee");
+			if (coffeeWaste == 10) {
+				alert("Error 14: oh no! the coffee wasteage tray is full. No coffee for you today."); 
 				return;
+			} else {
+				coffee = coffee - 1;
+				coffeeWaste = coffeeWaste + 1;
+				alert("Brewing the coffee grounds! Coffee wasteage has increased to " + coffeeWaste + " units");
+			
+				if (cups > 0) {
+					cups = cups - 1;
+					alert("Pouring coffee in the cup!");
+				} else {
+					alert("Error 4: No cups left to hold your coffee. Mind your feet!");
+					return;
+				}
 			}
+			
 		}
 		
 		if (sugar > 0) {
