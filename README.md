@@ -41,3 +41,5 @@ There have also been a couple of suggestions made about the UI:
 
 - It would be great to see the full readout of steps without needing to keep clicking the OK button 
 - To adjust the colours enough to stop the customers eyeballs from bleeding.
+
+Finally, almost all of your customers have modern browsers, however Alan's brother Neville is very enamoured by Internet Explorer so the application will need to continue to support at least IE 11.
